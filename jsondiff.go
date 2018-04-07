@@ -16,6 +16,18 @@ func Decode(r io.Reader) (map[string]interface{}, error) {
 	return m, nil
 }
 
+func KeysFromMap(m map[string]interface{}) []string {
+	i := 0
+	keys := make([]string, len(m))
+
+	for k := range m {
+		keys[i] = k
+		i++
+	}
+
+	return keys
+}
+
 func AlignKeys(leftKeys, rightKeys []string, ch chan string) {
 	allKeysCount := len(leftKeys) + len(rightKeys)
 	combinedKeys := make([]string, 0, allKeysCount)

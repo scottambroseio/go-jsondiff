@@ -46,3 +46,21 @@ func TestAlignKeys(t *testing.T) {
 		t.Errorf("Wrong result:\ngot: %v\nwant: %v\n", got, expected)
 	}
 }
+
+func TestKeysFromMap(t *testing.T) {
+	m := map[string]interface{}{
+		"foo": struct{}{},
+		"bar": struct{}{},
+		"baz": struct{}{},
+	}
+
+	expected := []string{"foo", "bar", "baz"}
+
+	keys := KeysFromMap(m)
+
+	eq := reflect.DeepEqual(keys, expected)
+
+	if !eq {
+		t.Errorf("Wrong result:\ngot: %v\nwant: %v\n", keys, expected)
+	}
+}
