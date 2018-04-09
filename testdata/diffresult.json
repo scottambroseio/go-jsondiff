@@ -1,0 +1,76 @@
+{
+  "root": {
+    "key": "",
+    "left": {
+      "baz": "bar",
+      "foo": "baz",
+      "quux": {
+        "foo": "baz"
+      },
+      "qux": "qux"
+    },
+    "right": {
+      "bar": "baz",
+      "foo": "bar",
+      "quux": {
+        "foo": "bar"
+      },
+      "qux": "qux"
+    }
+  },
+  "children": [
+    {
+      "root": {
+        "key": "foo",
+        "left": "baz",
+        "right": "bar",
+        "change": "Updated"
+      }
+    },
+    {
+      "root": {
+        "key": "bar",
+        "left": null,
+        "right": "baz",
+        "change": "Added"
+      }
+    },
+    {
+      "root": {
+        "key": "qux",
+        "left": "qux",
+        "right": "qux",
+        "change": "Unchanged"
+      }
+    },
+    {
+      "root": {
+        "key": "quux",
+        "left": {
+          "foo": "bar"
+        },
+        "right": {
+          "foo": "baz"
+        }
+      },
+      "children": [
+        {
+          "root": {
+            "key": "foo",
+            "left": "bar",
+            "right": "baz",
+            "change": "Updated"
+          }
+        }
+      ]
+    },
+    {
+      "root": {
+        "key": "baz",
+        "left": "bar",
+        "right": null,
+        "change": "Removed"
+      }
+    }
+  ]
+}
